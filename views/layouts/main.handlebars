@@ -4,54 +4,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tech Blog</title>
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <title>The Tech Blog</title>
+  <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="/css/style.css">
+  {{!-- USE BOOTSTRAP --}}
 </head>
 
-<body class="flex flex-col justify-center items-center w-full">
-  <header class="flex flex-col justify-center items-center gap-4 pt-4 pb-4 bg-gray-400 w-full">
-    <h1 class="self-center text-bold text-2xl"><span role="img" aria-label="laptop">💻</span>	<a class= "text-black-200" href="/">Dylan's Tech Blog</a><span role="img" aria-label="laptop">💻</span></h1>
-    <nav class"flex flex-row justify-between w-full">
-      <div class="flex gap-4">
-        <a class="underline text-black-200" href="/dashboard">Dashboard</a>
-        <!-- Conditionally render login or logout links -->
+<body>
+  <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
+      <h1>
+        <span role="img" aria-label="laptop">💻</span>
+        <a href="/">The Tech Blog</a>
+      </h1>
+      <nav>
+        <a href="/">Home</a> |
+        <a href="/dashboard">Dashboard</a> |
+        <!-- If the user has logged in,
+        Render "Profile" link and logout "link" in the top section -->
         {{#if logged_in}}
-        <a class="underline text-black-200" href="/" id="logout">Logout</a>
+        <button class="no-button" id="logout">Logout</button>
+        {{!-- If the user hasn't logged in, then display "login" link --}}
         {{else}}
-        <a class="underline text-black-200" href="/login">Login</a>
-        <a class="underline text-black-200" href="/signup">Signup</a>
+        <a href="/login">Login</a>
         {{/if}}
-      </div>
-    </nav>
-  </header>
 
-  <main class="flex flex-col justify-center items-center w-4/5 mt-2">
-    {{{ body }}}
-  </main>
-  <br><br><br>
-  <footer class="flex flex-col justify-center items-center w-full">
-        <div class="row-is-full content has-text-centered">
-            <p>
-            <a href="/">Home</a>{{#if logged_in}} |
-            <a href="/dashboard/">Dashboard</a> |
-            {{else}}
-            | <a href="/login">Login</a>
-            {{/if}}
-            </p>
-        </div>
-    <div class="row-is-full content has-text-centered">
-    <p>
-    <strong>A tech blog</strong> by
-      <a href="https://github.com/DylanBarstow7/">DylanBarstow7</a>
-    <a href="https://github.com/DylanBarstow7/Tech-Blog"><i class="fab fa-github"></i></a> |
-    <a href="mailto:dcbarstow7@gmail.com"><i class="far fa-envelope"></i>Contact via Email</a>
-    </p>
-  </div>
+      </nav>
+    </header>
+    <main class="container container-fluid mt-5">
+      <!-- Render the sub layout -->
+      {{{ body }}}
+    </main>
+    <footer>
+
     </footer>
+  </div>
 
+  <!-- Render script for logged in users only -->
 
   {{#if logged_in}}
-  <script src="/public/logout.js"></script>
+  <script src="/js/logout.js"></script>
   {{/if}}
 
 </body>
