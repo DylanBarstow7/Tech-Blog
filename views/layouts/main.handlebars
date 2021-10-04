@@ -25,33 +25,33 @@
 		</nav>
 	</header>
 
-	<main class="flex flex-col justify-center items-center w-9/12 mt-2">
+	<main class="flex flex-col justify-center items-center w-4/5 mt-2">
 		{{{ body }}}
 	</main>
 	<br><br><br>
 	<footer class="flex flex-col justify-center items-center w-full">
-        <div class="row-is-full content has-text-centered">
-            <p>
-            <a href="/">Home</a>{{#if loggedIn}} | 
-            <a href="/dashboard/">Dashboard</a> | 
-            {{else}}
-            | <a href="/login">Login</a>
-            {{/if}}
-            </p>
-        </div>
-      <div class="row-is-full content has-text-centered">
-    <p>
-      <strong>A tech blog</strong> by 
+				<div class="row-is-full content has-text-centered">
+						<p>
+						<a href="/">Home</a>{{#if loggedIn}} |
+						<a href="/dashboard/">Dashboard</a> |
+						{{else}}
+						| <a href="/login">Login</a>
+						{{/if}}
+						</p>
+				</div>
+		<div class="row-is-full content has-text-centered">
+		<p>
+		<strong>A tech blog</strong> by
 			<a href="https://github.com/DylanBarstow7/">DylanBarstow7</a>
-      <a href="https://github.com/DylanBarstow7/Tech-Blog"><i class="fab fa-github"></i></a> |  
-      <a href="mailto:dcbarstow7@gmail.com"><i class="far fa-envelope"></i>Contact via Email</a>
-    </p>
-  </div>
-    </footer>
+		<a href="https://github.com/DylanBarstow7/Tech-Blog"><i class="fab fa-github"></i></a> |
+		<a href="mailto:dcbarstow7@gmail.com"><i class="far fa-envelope"></i>Contact via Email</a>
+		</p>
+	</div>
+		</footer>
 
 
 	{{#if loggedIn}}
-	<script src="/js/logout.js"></script>
+	<script src="/public/logout.js"></script>
 	{{/if}}
 
 </body>
