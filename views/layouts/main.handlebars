@@ -15,7 +15,7 @@
       <div class="flex gap-4">
         <a class="underline text-black-200" href="/dashboard">Dashboard</a>
         <!-- Conditionally render login or logout links -->
-        {{#if loggedIn}}
+        {{#if logged_in}}
         <a class="underline text-black-200" href="/" id="logout">Logout</a>
         {{else}}
         <a class="underline text-black-200" href="/login">Login</a>
@@ -32,7 +32,7 @@
   <footer class="flex flex-col justify-center items-center w-full">
         <div class="row-is-full content has-text-centered">
             <p>
-            <a href="/">Home</a>{{#if loggedIn}} |
+            <a href="/">Home</a>{{#if logged_in}} |
             <a href="/dashboard/">Dashboard</a> |
             {{else}}
             | <a href="/login">Login</a>
@@ -50,7 +50,7 @@
     </footer>
 
 
-  {{#if loggedIn}}
+  {{#if logged_in}}
   <script src="/public/logout.js"></script>
   {{/if}}
 
