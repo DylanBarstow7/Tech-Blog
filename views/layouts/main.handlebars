@@ -2,57 +2,57 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Tech Blog</title>
-	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Blog</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
 <body class="flex flex-col justify-center items-center w-full">
-	<header class="flex flex-col justify-center items-center gap-4 pt-4 pb-4 bg-gray-400 w-full">
-		<h1 class="self-center text-bold text-2xl"><span role="img" aria-label="laptop">💻</span>	<a class= "text-black-200" href="/">Dylan's Tech Blog</a><span role="img" aria-label="laptop">💻</span></h1>
-		<nav class"flex flex-row justify-between w-full">
-			<div class="flex gap-4">
-				<a class="underline text-black-200" href="/dashboard">Dashboard</a>
-				<!-- Conditionally render login or logout links -->
-				{{#if loggedIn}}
-				<a class="underline text-black-200" href="/" id="logout">Logout</a>
-				{{else}}
-				<a class="underline text-black-200" href="/login">Login</a>
-				<a class="underline text-black-200" href="/signup">Signup</a>
-				{{/if}}
-			</div>
-		</nav>
-	</header>
+  <header class="flex flex-col justify-center items-center gap-4 pt-4 pb-4 bg-gray-400 w-full">
+    <h1 class="self-center text-bold text-2xl"><span role="img" aria-label="laptop">💻</span>	<a class= "text-black-200" href="/">Dylan's Tech Blog</a><span role="img" aria-label="laptop">💻</span></h1>
+    <nav class"flex flex-row justify-between w-full">
+      <div class="flex gap-4">
+        <a class="underline text-black-200" href="/dashboard">Dashboard</a>
+        <!-- Conditionally render login or logout links -->
+        {{#if loggedIn}}
+        <a class="underline text-black-200" href="/" id="logout">Logout</a>
+        {{else}}
+        <a class="underline text-black-200" href="/login">Login</a>
+        <a class="underline text-black-200" href="/signup">Signup</a>
+        {{/if}}
+      </div>
+    </nav>
+  </header>
 
-	<main class="flex flex-col justify-center items-center w-4/5 mt-2">
-		{{{ body }}}
-	</main>
-	<br><br><br>
-	<footer class="flex flex-col justify-center items-center w-full">
-				<div class="row-is-full content has-text-centered">
-						<p>
-						<a href="/">Home</a>{{#if loggedIn}} |
-						<a href="/dashboard/">Dashboard</a> |
-						{{else}}
-						| <a href="/login">Login</a>
-						{{/if}}
-						</p>
-				</div>
-		<div class="row-is-full content has-text-centered">
-		<p>
-		<strong>A tech blog</strong> by
-			<a href="https://github.com/DylanBarstow7/">DylanBarstow7</a>
-		<a href="https://github.com/DylanBarstow7/Tech-Blog"><i class="fab fa-github"></i></a> |
-		<a href="mailto:dcbarstow7@gmail.com"><i class="far fa-envelope"></i>Contact via Email</a>
-		</p>
-	</div>
-		</footer>
+  <main class="flex flex-col justify-center items-center w-4/5 mt-2">
+    {{{ body }}}
+  </main>
+  <br><br><br>
+  <footer class="flex flex-col justify-center items-center w-full">
+        <div class="row-is-full content has-text-centered">
+            <p>
+            <a href="/">Home</a>{{#if loggedIn}} |
+            <a href="/dashboard/">Dashboard</a> |
+            {{else}}
+            | <a href="/login">Login</a>
+            {{/if}}
+            </p>
+        </div>
+    <div class="row-is-full content has-text-centered">
+    <p>
+    <strong>A tech blog</strong> by
+      <a href="https://github.com/DylanBarstow7/">DylanBarstow7</a>
+    <a href="https://github.com/DylanBarstow7/Tech-Blog"><i class="fab fa-github"></i></a> |
+    <a href="mailto:dcbarstow7@gmail.com"><i class="far fa-envelope"></i>Contact via Email</a>
+    </p>
+  </div>
+    </footer>
 
 
-	{{#if loggedIn}}
-	<script src="/public/logout.js"></script>
-	{{/if}}
+  {{#if loggedIn}}
+  <script src="/public/logout.js"></script>
+  {{/if}}
 
 </body>
 
