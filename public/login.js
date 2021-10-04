@@ -1,4 +1,4 @@
-async function loginFormHandler(event) {
+const loginFormHandler = async (event) => {
     event.preventDefault();
 
     // Collect values from the login form
@@ -8,16 +8,13 @@ async function loginFormHandler(event) {
     // Send a POST request to the API endpoint
     if (username && password) {
         const response = await fetch("/api/users/login", {
-            method: "post",
-            body: JSON.stringify({
-                username,
-                password,
-            }),
+            method: "POST",
+            body: JSON.stringify({ username, password }),
             headers: { "Content-Type": "application/json" },
         });
         if (response.ok) {
             // If successful, redirect the browser to the profile page
-            document.location.replace("/dashboard");
+            document.location.replace("/");
         } else {
             alert(response.statusText);
         }

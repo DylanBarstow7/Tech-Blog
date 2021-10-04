@@ -1,5 +1,5 @@
-async function editFormHandler(event) {
-    event.preventDefault();
+const newFormHandler = async (event) => {
+  event.preventDefault()
   
     const title = document.querySelector('input[name="post-title"]').value;
     const post_content = document.querySelector('input[name="post-content"]').value;
