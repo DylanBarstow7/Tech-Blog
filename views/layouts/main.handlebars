@@ -10,10 +10,9 @@
 
 <body class="flex flex-col justify-center items-center w-full">
 	<header class="flex flex-col justify-center items-center gap-4 pt-4 pb-4 bg-gray-400 w-full">
-		<h1 class="self-center text-bold text-2xl"><span role="img" aria-label="laptop">💻</span>	Dylan's Tech Blog	<span role="img" aria-label="laptop">💻</span></h1>
+		<h1 class="self-center text-bold text-2xl"><span role="img" aria-label="laptop">💻</span>	<a class= "text-black-200" href="/">Dylan's Tech Blog</a><span role="img" aria-label="laptop">💻</span></h1>
 		<nav class"flex flex-row justify-between w-full">
 			<div class="flex gap-4">
-				<a class="underline text-black-200" href="/">Home</a>
 				<a class="underline text-black-200" href="/dashboard">Dashboard</a>
 				<!-- Conditionally render login or logout links -->
 				{{#if loggedIn}}
@@ -26,7 +25,7 @@
 		</nav>
 	</header>
 
-	<main class="flex flex-col justify-center items-center w-4/5 mt-2">
+	<main class="flex flex-col justify-center items-center w-9/12 mt-2">
 		{{{ body }}}
 	</main>
 	<br><br><br>
