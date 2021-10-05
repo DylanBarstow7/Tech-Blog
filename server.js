@@ -28,5 +28,6 @@ app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 app.use(routes);
 
-sequelize.sync({ force: false });
-app.listen(PORT, () => console.log(`Now listening on ${PORT}`));
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => console.log(`Now listening on ${PORT}`));
+});
