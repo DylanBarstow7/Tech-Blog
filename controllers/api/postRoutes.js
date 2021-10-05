@@ -1,9 +1,10 @@
 const router = require('express').Router();
-const { Post } = require('../../models');
+const { Post} = require('../../models');
 const withAuth = require('../../utils/auth');
 
-  // find all posts
+// Used for insomnia
 router.get('/', async (req, res) => {
+  // find all posts
   try {
     const postData = await Post.findAll();
     res.status(200).json(postData);
