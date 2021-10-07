@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-
+// used for insomnia purposes
 router.get('/', async (req, res) => {
+  // find all products
   try {
     const userData = await User.findAll();
     res.status(200).json(userData);
@@ -26,11 +27,12 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
+    console.log(req.body.username);
+    const userData = await User.findOne({ where: { username: req.body.username } });
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'User not found' });
       return;
     }
     const validPassword = await userData.checkPassword(req.body.password);

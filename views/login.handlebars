@@ -1,17 +1,46 @@
-<div class="flex flex-col justify-center items-center gap-2 mt-8 p-4 rounded-3xl border-dashed border-4 border-black bg-yellow-300">
-  <h3 class="font-bold mt-4">Login</h3>
-  <p>or <a class="underline" href="/signup.js"> Sign Up</a></p>
-  <form id="login-form" class="flex flex-col gap-4 mt-4">
-    <span>
-    <label class="form-label" for="username-login">Username:</label>
-    <input id="username-login" type="text" autofocus="true" class="form-input" />
-    </span>
-    <span>
-    <label class="form-label" for="password-login">Password:</label>
-    <input id="password-login" type="password" autofocus="true" class="form-input" />
-    </span>
-    <button type="submit" class="btn border-2 bg-gray-400 w-min py-1 px-2 rounded-xl self-end">Login!</button>
-  </form>
+<div class="container">
+
+    <div class="row d-flex d-wrap justify-content-center">
+        <form class="login-form border rounded border-dark p-5 col-12 col-lg-5 m-2">
+            <h1 class="text-center mb-5">Login</h1>
+            <div class="row mb-3">
+                <label for="username-login" class="col-form-label">Username:</label>
+                <div class="col-sm-10">
+                    <input type="username" class="form-control" id="username-login">
+                </div>
+            </div>
+            
+            <div class="row mb-3">
+                <label for="password-login" class="col-form-label">Password:</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="password-login">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success">Login</button>
+        </form>
+        <form class="signup-form border rounded border-dark p-5 col-12 col-lg-5 m-2">
+            <h1 class="text-center mb-5">Sign Up</h1>
+            <div class="row mb-3">
+                <label for="email-signup" class="col-form-label">Email:</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email-signup">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="username-signup" class="col-form-label">Username:</label>
+                <div class="col-sm-10">
+                    <input type="username" class="form-control" id="username-signup">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="password-signup" class="col-form-label">Password:</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="password-signup">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success">Sign Up</button>
+        </form>
+    </div>
 </div>
 
-<script src="/public/js/login.js"></script>
+<script src="./js/login.js"></script>
