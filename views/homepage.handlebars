@@ -1,7 +1,17 @@
-<article class="flex flex-col w-11/12">
-
-    {{#each posts as |post| }}
-        {{> post-info post}}
-    {{/each}}
-
-</article>
+{{!-- The purpose of this page is to display all of the posts --}}
+<!-- Loop over each object in the post array -->
+{{#each posts as |post| }}
+<div class="card">
+    <div class="d-flex flex-wrap justify-content-between card-header">
+        <div>
+            {{ format_date post.createdAt}}
+        </div>
+        <div> Posted by {{user.username}}</div>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{post.title}}</h5>
+        <p class="card-text">{{post.content}}</p>
+        <a href="/post/{{post.id}}" class="btn btn-primary">Read More</a>
+    </div>
+</div>
+{{/each}}
