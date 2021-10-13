@@ -18,8 +18,9 @@ const loginFormHandler = async (event) => {
       document.location.replace('/');
       console.log(`You are logged in as ${username}`)
     } else {
-      alert(response.statusText);
-    }
+      alert('Failed to login. Please try again');
+      console.log(response);
+    };
   }
   console.log(username.value);
   console.log(password.value);
@@ -32,10 +33,10 @@ const signUpFormHandler = async (event) => {
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
 
-  if(email && username && password) {
+  if (username && email && password) {
       const response = await fetch('/api/users', {
           method: 'POST',
-          body: JSON.stringify({ email, username, password }),
+          body: JSON.stringify({ username, email, password }),
           headers: { 'Content-Type': 'application/json' },
       });
       if(response.ok) {
