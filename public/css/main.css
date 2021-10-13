@@ -1,0 +1,57 @@
+body {
+  margin: auto;
+}
+
+main {
+  width: 60%;
+  margin: auto;
+}
+
+form {
+  width: 50%;
+  margin: auto;
+}
+
+.card {
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.post-comment {
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+.post-update-form {
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.post-form-title {
+  font-size: 1.5rem;
+}
+
+.form-control:read-only{
+  background-color: transparent;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+#new-post {
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+
+@media screen and (max-width: 768px){
+  form {
+      width: 90%;
+  }
+}
