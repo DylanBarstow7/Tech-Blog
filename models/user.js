@@ -1,16 +1,13 @@
-// 6 Import sequelize, bcrypt, and import config/connection
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-// 7 Create User Model and when it is created, hook the password
 class User extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   };
 };
 
-// 8 Create initialize user Model and insert column attributes
 User.init(
   {
     id: {
@@ -35,26 +32,20 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [8],
+        len: [6],
       },
     },
   },
-// 9 create a hook to encrypt the user's password  (See ./Post.js)
+
   {
     hooks: {
-      async beforeCreate(newUserData) {
-        newUserData.password = await bcrypt.hash(
-          newUserData.password,
-          10
-        );
+      beforeCreate: async (newUserData) => {
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
       },
-      beforeUpdate: async (updatedUserData) => {
-        updatedUserData.password = await bcrypt.hash(
-          updatedUserData.password,
-          10
-        );
-        return updatedUserData;
+      beforeUpdate: async (updateUserData) => {
+        updateUserData.password = await bcrypt.hash(updateUserData.password, 10);
+        return updateUserData;
       },
     },
     sequelize,
