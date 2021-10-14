@@ -1,14 +1,6 @@
 module.exports = {
-    format_date: (date) => {
-        return date.toLocalTimeString();
-    },
-    
-    format_date: (date) => {
-      return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(date).getFullYear()}`;
-    },
-    
-    // checks if the author is the signed in user
-    isAuthor: (myId, authorId) => {
-      return myId === authorId;
-  }
+  format_date: (date) => {
+    // Format date as MM/DD/YYYY
+    return date.toLocaleDateString();
+  },
 };
