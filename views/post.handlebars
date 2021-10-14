@@ -1,61 +1,36 @@
-<div class="card container-fluid">
-    <div class="d-flex justify-content-between card-header row ">
-        <div class="col-12 col-lg-3">
-            {{ format_date post.createdAt}}
-        </div>
-        <div class="col-12 col-lg-3"> Posted by {{post.user.username}} on {{format_date comment.createdAt}}</div>
+<div class="text-center">
+  <h2>{{title}}</h2>
+  <p>{{description}}</p>
+  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+
+  {{#each comments as |comment|}}
+
+    <div class="row mb-2">
+      <div class="col-md-8">
+        {{comment.title}}
+        <p>Created by {{comment.user.name}} on {{format_date comment.date_created}}</p>
+      </div>
+      <p>{{comment.description}}</p>
     </div>
-    <form class="card-body post-update-form">
-        <div class="form-group">
-            <input type="hidden" name="specific-post" id="specific-post" value="{{post.id}}" />
-            <label for="post-title" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-10 post-form-title">
-                <input type="text" {{#unless owner}}readonly{{/unless}} class="form-control-plaintext"
-                    id="post-title" value="{{post.title}}">
-            </div>
-        </div>
-        {{#if owner}}
-        <div class="input-group" ><span class="textarea" id="post-content" role="textbox" value="{{post.content}}" contenteditable>{{post.content}}</span></div>
-        {{else}}
-        <p>{{post.content}}</p>
-        {{/if}}
-    </form>
-    {{#if owner}}
-    <div class="d-flex justify-content-start align-items-center">
-        <button class="btn btn-success m-2" type="submit" id="updateBtn">Update</button>
-        <button class="btn btn-danger delete-btn m-2" id="deleteBtn">Delete</button>
+
+    {{/each}}
+    
+  <form class="form new-comment-form">
+    <div class="form-group">
+      <label for="comment-title">Comment Title:</label>
+      <input class="form-input" type="text" id="comment-title" name="comment-title" />
     </div>
-    {{/if}}
+    <div class="form-group">
+      <label for="comment-desc">Description:</label>
+      <textarea class="form-input" id="comment-desc" name="comment-desc"></textarea>
+    </div>
+    <div class="form-group">
+      <input type="hidden" name="post-id" value="{{id}}" id="post-id"/>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Add New Comment</button>
+    </div>
+  </form>
 </div>
 
-</br>
-</br>
-
-{{#unless loggedIn}}
-<p>Must be <a href="/login">logged in</a> to leave a comment.</p>
-{{/unless}}
-
-{{#if loggedIn}}
-
-<form class="form post-comment d-flex flex-column justify-content-start">
-    <div class="form-group">
-        <label for="comment">Comment:</label>
-        <textarea class="form-control" type="textarea" id="comment"></textarea>
-    </div>
-    <input type="hidden" name="post" id="post" value="{{post.id}}" />
-    <div class="form-group">
-        <button class="btn btn-primary mt-3 mb-5" type="submit" id="postComment">Post Comment</button>
-    </div>
-</form>
-{{/if}}
-<h5>Comments:</h5>
-{{#each post.comments as |comment|}}
-<div class="card comment">
-    <div class="card-body">
-        <h6 class="card-text">{{comment.body}}</h6>
-        <p class="card-text">- {{comment.user.username}} on {{format_date comment.createdAt}}</p>
-    </div>
-</div>
-{{/each}}
-
-<script src="../public/js/post.js"></script>
+<script src="/js/comment.js"></script>

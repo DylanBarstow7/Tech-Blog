@@ -1,17 +1,19 @@
 {{!-- The purpose of this page is to display all of the posts --}}
 <!-- Loop over each object in the post array -->
 {{#each posts as |post| }}
-<div class="card">
-    <div class="d-flex flex-wrap justify-content-between card-header">
-        <div>
-            {{ format_date post.createdAt}}
-        </div>
-        <div> Posted by {{user.username}}</div>
-    </div>
-    <div class="card-body">
-        <h5 class="card-title">{{post.title}}</h5>
-        <p class="card-text">{{post.content}}</p>
-        <a href="/post/{{post.id}}" class="btn btn-primary">Read More</a>
-    </div>
+<div class="row mb-4 post">
+  <div class="col-md-5">
+    {{!-- If the title of the post is selected, then the post will be displayed with the option to comment on the post --}}
+    <h2>
+      <a href="/post/{{post.id}}">{{post.title}}</a>
+    </h2>
+    <p>Created by {{post.user.name}} on {{format_date post.date_created}}</p>
+  </div>
+
+  <div class="col-md-7">
+    <p>
+      {{post.description}}
+    </p>
+  </div>
 </div>
 {{/each}}
