@@ -3,52 +3,69 @@ const { Comment } = require('../models');
 const commentData = [
 // TODO: UPDATE
   {
-    body: "Here is the first comment on JavaScript by Sal",
+    title: 'Javascript Comment #1',
+    description: "Here is the first comment on JavaScript by Sal",
+    date_created: "01/11/2021",
     user_id: 1,
     post_id: 1,
   },
   {
-    body: "Here is the second comment on JavaScript by Lernantino",
+    title: 'Javascript Comment #2',
+    description: "Here is the second comment on JavaScript by Lernantino",
+    date_created: "02/12/2021",
     user_id: 2,
     post_id: 1,
   },
   {
-    body: "Here is the third comment on JavaScript by Amiko",
+    title: 'Javascript Comment #3',
+    description: "Here is the third comment on JavaScript by Amiko",
+    date_created: "03/13/2021",
     user_id: 3,
     post_id: 1,
   },
   {
-    body: "Here is the first comment on HTML by Sal",
+    title: 'HTML Comment #1',
+    description: "Here is the first comment on HTML by Sal",
+    date_created: "01/21/2021",
     user_id: 1,
     post_id: 2,
   },
   {
-    body: "Here is the second comment on HTML by Lernantino",
+    title: 'HTML Comment #2',
+    description: "Here is the second comment on HTML by Lernantino",
+    date_created: "02/22/2021",
     user_id: 2,
     post_id: 2,
   },
   {
-    body: "Here is the third comment on HTML by Amiko",
+    title: 'HTML Comment #3',
+    description: "Here is the third comment on HTML by Amiko",
+    date_created: "03/23/2021",
     user_id: 3,
     post_id: 2,
-  },
-  {
-    body: "Here is the first comment on CSS by Sal",
+  },  {
+    title: 'CSS Comment #1',
+    description: "Here is the first comment on CSS by Sal",
+    date_created: "01/01/2021",
     user_id: 1,
     post_id: 3,
   },
   {
-    body: "Here is the second comment on CSS by Lernantino",
+    title: 'CSS Comment #2',
+    description: "Here is the second comment on CSS by Lernantino",
+    date_created: "02/02/2021",
     user_id: 2,
     post_id: 3,
   },
   {
-    body: "Here is the third comment on CSS by Amiko",
+    title: 'CSS Comment #3',
+    description: "Here is the third comment on CSS by Amiko",
+    date_created: "03/03/2021",
     user_id: 3,
     post_id: 3,
   },
 ];
 
-const seedComment = () => Comment.bulkCreate(commentData);
+const seedComments = () => Comment.bulkCreate(commentData);
 
-module.exports = seedComment;
+module.exports = seedComments;
